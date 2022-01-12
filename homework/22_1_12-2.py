@@ -83,8 +83,10 @@ class User(object):
         print('=' * 20)
         print('玩家%s出的是%s' % (self.name, List[k1 - 1]))
         if value_win == 0:
+            print('='*20)
             print('玩家%s赢了此局' % self.name)
         elif value_win == 1:
+            print('='*20)
             print('电脑%s赢了此局' % Name[num - 1])
         else:
             print('=' * 20)
