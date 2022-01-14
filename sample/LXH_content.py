@@ -37,7 +37,7 @@ class Lxh(object):
             article_id = i['article_id']
             cmt = i['content']
             title = i['title']
-            score = i['score']/2
+            score = i['score'] / 2
             list_.append([article_id, title, score, cmt])
         return list_
 
@@ -49,7 +49,7 @@ class Lxh(object):
 
 def init_csv():
     list_ = [['文章id', '标题', '评分', '', '内容']]
-    with open(r'../data/lxh_content.csv','w',encoding='utf-8') as fd:
+    with open(r'../data/lxh_content.csv', 'w', encoding='utf-8') as fd:
         writer = csv.writer(fd)
         writer.writerows(list_)
 
