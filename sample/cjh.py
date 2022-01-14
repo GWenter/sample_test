@@ -59,14 +59,15 @@ class CJHSpider(object):
 
 def main():
     cjh_spider = CJHSpider()
-    try:
-        while True:
+    while True:
+        try:
             content = cjh_spider.crawl(1000)
             movies = cjh_spider.parse(content)
             cjh_spider.save_csv(movies)
             print("====")
-    except Exception as ex:
-        print("Spider error:" + str(ex))
+        except Exception as ex:
+            print("Spider error:" + str(ex))
+            break
 
 
 if __name__ == '__main__':
