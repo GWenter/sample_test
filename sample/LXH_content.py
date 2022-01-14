@@ -37,14 +37,21 @@ class Lxh(object):
             article_id = i['article_id']
             cmt = i['content']
             title = i['title']
-            score = i['score']
+            score = i['score']/2
             list_.append([article_id, title, score, cmt])
         return list_
 
-    def save_csv(self,list_):
-        with open(r'../data/lxh_content.csv','a',encoding='utf-8') as fd:
+    def save_csv(self, list_):
+        with open(r'../data/lxh_content.csv', 'a', encoding='utf-8') as fd:
             writer = csv.writer(fd)
             writer.writerows(list_)
+
+
+def init_csv():
+    list_ = [['文章id', '标题', '评分', '', '内容']]
+    with open(r'../data/lxh_content.csv','w',encoding='utf-8') as fd:
+        writer = csv.writer(fd)
+        writer.writerows(list_)
 
 
 def main():
@@ -57,9 +64,10 @@ def main():
             print('====have done ===')
             time.sleep(1)
         except Exception as ex:
-            print("Spider error:"+str(ex))
+            print("Spider error:" + str(ex))
             break
 
 
 if __name__ == '__main__':
+    init_csv()
     main()
